@@ -7,3 +7,5 @@ const Address = props => {
 		</h2>
 	)
 }
+
+export default Address;
