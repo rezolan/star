@@ -5,7 +5,7 @@ import Card from './Card';
 const mapStateToProps = ({ cards }) => ({ cards });
 class CardsList extends Component {
 	render() {
-		console.log(1111, this.props);
+		console.log(1111, this.props.cards);
 		return (
 			<div className="cards-list">
 			</div>
