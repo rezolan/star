@@ -2,7 +2,7 @@ import { FETCH_CARDS, SET_CARDS_ERROR, SET_CARDS_LOADING } from '../constants/ac
 
 export const cardsState = {
 	cardsList: [],
-	isLoading: false,
+	isLoading: true,
 	error: ''
 };
 

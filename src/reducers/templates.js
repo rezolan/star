@@ -6,7 +6,7 @@ import {
 
 export const templatesState = {
 	templatesList: [],
-	isLoading: false,
+	isLoading: true,
 	error: '',
 	currentTemplate: 1
 };

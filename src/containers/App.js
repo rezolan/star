@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import CardsList from '../components/CardsList';
 import { fetchCards, fetchTemplates } from '../actions';
+import TemplatesList from '../components/TemplatesList';
 
 class App extends PureComponent {
   componentDidMount() {
@@ -15,6 +16,7 @@ class App extends PureComponent {
 		console.log(('templates', templates));
 		return (
       <div className="App">
+				<TemplatesList templates={templates} cards={cards}/>
         <CardsList cards={cards} currentTemplate={templates.templatesList[0]}/>
       </div>
     );
