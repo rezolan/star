@@ -1,14 +1,23 @@
-import {FETCH_CARDS} from '../constants/actionTypes'
+import { FETCH_CARDS, SET_CARDS_ERROR, SET_CARDS_LOADING } from '../constants/actionTypes';
 
-const posts = (state = [], action) => {
-	const {type, payload} = action;
-	console.log(action);
+export const cardsState = {
+	cardsList: [],
+	isLoading: false,
+	error: ''
+};
+
+const cards = (state = cardsState, action) => {
+	const { type, payload } = action;
 
 	switch(type) {
 		case FETCH_CARDS:
-			return [...payload];
+			return {...state, cardsList: [...payload]};
+		case SET_CARDS_ERROR:
+			return {...state, error: payload};
+		case SET_CARDS_LOADING:
+			return {...state, isLoading: payload};
 		default:
-			return state;
+			return {...state};
 	}
 };
-export default posts;
+export default cards;
