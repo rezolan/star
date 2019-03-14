@@ -11,10 +11,11 @@ class App extends PureComponent {
 		console.log(11111, this.props);
 	}
 	render() {
-  	const { cards } = this.props;
-    return (
+  	const { cards, templates } = this.props;
+		console.log(('templates', templates));
+		return (
       <div className="App">
-        <CardsList cards={cards}/>
+        <CardsList cards={cards} currentTemplate={templates.templatesList[0]}/>
       </div>
     );
   }

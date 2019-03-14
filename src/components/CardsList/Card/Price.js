@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Price = props => {
+const Price = ({ data }) => {
 	return (
-		<div>{props.currency} {props.price}</div>
+		<div>{ data }</div>
 	)
-}
+};
 
 export default Price;

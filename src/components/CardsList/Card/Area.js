@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Area = props => {
+const Area = ({ data }) => {
 	return (
 		<div className="area">
-			{props.area} sq.fr.
+			{ data } sq.fr.
 		</div>
 	)
-}
+};
 
 export default Area;

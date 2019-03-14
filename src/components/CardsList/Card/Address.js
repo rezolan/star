@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Address = props => {
+const Address = ({ data }) => {
 	return (
 		<h2>
-			{props.address}
+			{ data }
 		</h2>
 	)
-}
+};
 
 export default Address;
