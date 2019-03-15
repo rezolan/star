@@ -6,15 +6,16 @@ import { fetchCards, fetchTemplates, changeTemplate } from '../actions';
 import TemplatesList from '../components/TemplatesList';
 
 class App extends PureComponent {
-
+	getCurrentTemplate() {
+		const { templates } = this.props;
+		return templates.templatesList.find(({ id }) => id === templates.currentTemplate);
+	}
   componentDidMount() {
 		this.props.fetchCards();
 		this.props.fetchTemplates();
-		console.log(this.props.changeTemplate);
 	}
 	render() {
   	const { cards, templates, changeTemplate } = this.props;
-		console.log(this.props);
 		return (
       <div className="App">
 				{!cards.isLoading && !templates.isLoading ?
@@ -25,7 +26,7 @@ class App extends PureComponent {
 							changeTemplate={changeTemplate}/>
 						<CardsList
 							cards={cards}
-							currentTemplate={templates.templatesList[0]}/>
+							currentTemplate={this.getCurrentTemplate()}/>
 					</>
 					 : null}
       </div>
