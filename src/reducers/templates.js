@@ -1,7 +1,6 @@
 import {
 	FETCH_TEMPLATES,
 	SET_TEMPLATES_ERROR,
-	SET_TEMPLATES_LOADING,
 	CHANGE_TEMPLATE } from '../constants/actionTypes';
 
 export const templatesState = {
@@ -16,13 +15,10 @@ const templates = (state = templatesState, action) => {
 
 	switch(type) {
 		case FETCH_TEMPLATES:
-			return {...state, templatesList: [...payload]};
+			return {...state, templatesList: [...payload], isLoading: false};
 		case SET_TEMPLATES_ERROR:
 			return {...state, error: payload};
-		case SET_TEMPLATES_LOADING:
-			return {...state, isLoading: payload};
 		case CHANGE_TEMPLATE:
-			console.log('12312', payload);
 			return {...state, currentTemplate: payload};
 		default:
 			return {...state};

@@ -1,4 +1,4 @@
-import { FETCH_CARDS, SET_CARDS_ERROR, SET_CARDS_LOADING } from '../constants/actionTypes';
+import { FETCH_CARDS, SET_CARDS_ERROR } from '../constants/actionTypes';
 
 export const cardsState = {
 	cardsList: [],
@@ -11,11 +11,9 @@ const cards = (state = cardsState, action) => {
 
 	switch(type) {
 		case FETCH_CARDS:
-			return {...state, cardsList: [...payload]};
+			return {...state, cardsList: [...payload], isLoading: false};
 		case SET_CARDS_ERROR:
 			return {...state, error: payload};
-		case SET_CARDS_LOADING:
-			return {...state, isLoading: payload};
 		default:
 			return {...state};
 	}
