@@ -14,6 +14,7 @@ export const fetchTemplates = () => dispatch => {
 		})
 };
 
-export const changeTemplate = (payload) => dispatch => {
+export const changeTemplate = payload => dispatch => {
+	console.log('ppp', payload);
 	dispatch({type: CHANGE_TEMPLATE, payload})
 };

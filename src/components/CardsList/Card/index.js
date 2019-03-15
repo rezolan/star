@@ -5,7 +5,7 @@ import Image from './Image';
 import Price from './Price';
 
 const Card = (props) => {
-	const { currentTemplate, data } = props;
+	const { currentTemplate: { template }, data } = props;
 	const converter = {
 		AREA: props => <Area {...props}/>,
 		IMAGE: props => <Image {...props}/>,
@@ -15,7 +15,7 @@ const Card = (props) => {
 	console.log('props', props);
 	return (
 		<div className="card" style={{border: '1px solid'}}>
-			{currentTemplate ? currentTemplate.map((entity, index) => {
+			{template ? template.map((entity, index) => {
 				const { component, field } = entity;
 				const ComponentType = converter[entity.component];
 				return (

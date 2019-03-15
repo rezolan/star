@@ -22,6 +22,7 @@ const templates = (state = templatesState, action) => {
 		case SET_TEMPLATES_LOADING:
 			return {...state, isLoading: payload};
 		case CHANGE_TEMPLATE:
+			console.log('12312', payload);
 			return {...state, currentTemplate: payload};
 		default:
 			return {...state};
