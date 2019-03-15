@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import './App.css';
 import { connect } from 'react-redux';
 import CardsList from '../components/CardsList';
 import { fetchCards, fetchTemplates, changeTemplate } from '../actions';
@@ -26,7 +25,7 @@ class App extends PureComponent {
 							changeTemplate={changeTemplate}/>
 						<CardsList
 							cards={cards}
-							currentTemplate={this.getCurrentTemplate()}/>
+							currentTemplate={templates.currentTemplate}/>
 					</>
 					 : null}
       </div>
