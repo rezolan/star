@@ -1,12 +1,11 @@
 import React from 'react';
-import Card from './CardsList/Card';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import {compose, withState, withHandlers} from 'recompose';
+import { compose, withState } from 'recompose';
+import Card from './CardsList/Card';
 
 const styles = theme => ({
 	item: {

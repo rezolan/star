@@ -18,6 +18,7 @@ class App extends PureComponent {
 		return (
       <div className="App">
 				{!cards.isLoading && !templates.isLoading ?
+					cards.error || templates.error ? <h1>Something went wrong</h1> :
 					<>
 						<TemplatesList
 							templates={templates}
