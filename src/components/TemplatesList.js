@@ -11,6 +11,10 @@ const styles = theme => ({
 	item: {
 		cursor: 'pointer'
 	},
+	modal: {
+		overflowY: 'auto',
+		overflowX: 'hidden'
+	},
 	modalBtn: {
 		padding: '10px 0',
 		borderBottom: '1px solid',
@@ -18,16 +22,20 @@ const styles = theme => ({
 	}
 });
 
-const TemplatesList = ({ templates, data, changeTemplate, open, setOpen, classes: { item, modalBtn } }) => {
+const TemplatesList = (
+	{ templates, data, open, changeTemplate, setOpen, classes: { item, modalBtn, modal } }) => {
 	const { templatesList } = templates;
 	return (
 		<div className="templates-list">
 			<div className={modalBtn}>
-				<Button onClick={() => setOpen(()=>true)}>show list of templates</Button>
+				<Button
+					variant="contained"
+					onClick={() => setOpen(()=>true)}>show list of templates</Button>
 			</div>
 			<Modal
 				aria-labelledby="simple-modal-title"
 				aria-describedby="simple-modal-description"
+				className={modal}
 				open={open}
 				onClose={()=>setOpen(()=>false)}
 			>
@@ -49,13 +57,30 @@ const TemplatesList = ({ templates, data, changeTemplate, open, setOpen, classes
 							data={data}
 							currentTemplate={temp}/>
 					</Grid>))}
+					<Grid
+						container
+						justify="space-around"
+						alignItems="center">
+						<Button
+							variant="contained"
+							onClick={() => setOpen(()=>false)}>close</Button>
+					</Grid>
 			</Grid>
 			</Modal>
 		</div>
 	)
 };
+
+TemplatesList.propTypes = {
+	templates: PropTypes.object.isRequired,
+	data: PropTypes.object.isRequired,
+	open: PropTypes.bool.isRequired,
+	changeTemplate: PropTypes.func.isRequired,
+	setOpen: PropTypes.func.isRequired,
+	classes: PropTypes.object
+};
+
 export default compose(
 	withState('open', 'setOpen', false),
 	withStyles(styles)
 )(TemplatesList);
-// export default withStyles(styles)(TemplatesList);

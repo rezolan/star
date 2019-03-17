@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
 	image: {
@@ -30,5 +31,11 @@ class Image extends Component {
 		)
 	}
 }
+
+Image.propTypes = {
+	data: PropTypes.array.isRequired,
+	children: PropTypes.array,
+	classes: PropTypes.object
+};
 
 export default withStyles(styles)(Image);

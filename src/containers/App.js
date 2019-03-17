@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CardsList from '../components/CardsList';
 import { fetchCards, fetchTemplates, changeTemplate } from '../actions';
 import TemplatesList from '../components/TemplatesList';
@@ -40,4 +41,13 @@ const mapDispatchToProps = dispatch => ({
 	fetchTemplates: () => dispatch(fetchTemplates()),
 	changeTemplate: (id) => dispatch(changeTemplate(id))
 });
+
+App.propTypes = {
+	cards: PropTypes.object.isRequired,
+	templates: PropTypes.object.isRequired,
+	fetchCards: PropTypes.func.isRequired,
+	fetchTemplates: PropTypes.func.isRequired,
+	changeTemplate: PropTypes.func.isRequired
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);

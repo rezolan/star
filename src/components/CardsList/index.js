@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
 import Grid from '@material-ui/core/Grid/Grid';
 
@@ -23,6 +24,11 @@ const CardsList = ({ cards, currentTemplate }) => {
 				}
 			</Grid>
 		)
+};
+
+CardsList.propTypes = {
+	cards: PropTypes.object.isRequired,
+	currentTemplate: PropTypes.object.isRequired
 };
 
 export default CardsList;

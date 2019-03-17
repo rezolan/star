@@ -1,8 +1,9 @@
 import React, {Fragment} from 'react';
-import componentsConverter from '../../../constants/componentsConverner';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid/Grid';
+import componentsConverter from '../../../constants/componentsConverner';
 
 const styles = theme => ({
 	card: {
@@ -15,8 +16,7 @@ const styles = theme => ({
 	}
 });
 
-const Card = (props) => {
-	const { currentTemplate: { template }, data, classes: { card, container } } = props;
+const Card = ({ data, currentTemplate: { template }, classes: { card, container } }) => {
 	return (
 		<Paper className={card}>
 			<Grid
@@ -51,4 +51,12 @@ const Card = (props) => {
 		</Paper>
 	)
 };
+
+Card.propTypes = {
+	data: PropTypes.object.isRequired,
+	currentTemplate: PropTypes.object.isRequired,
+	classes: PropTypes.object
+
+};
+
 export default withStyles(styles)(Card);
