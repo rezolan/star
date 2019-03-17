@@ -5,13 +5,18 @@ import Grid from '@material-ui/core/Grid/Grid';
 const CardsList = ({ cards, currentTemplate }) => {
 	const { cardsList } = cards;
 	return (
-			<Grid container spacing={8}>
+			<Grid
+				container
+				spacing={8}
+				alignItems="stretch">
 				{cardsList.map(card => {
 					return (
 						<Grid
 							xs={12}
 							md={4}
 							item
+							container
+							alignItems="stretch"
 							key={card.id}>
 							<Card data={card} currentTemplate={currentTemplate}/>
 						</Grid>)})

@@ -2,9 +2,9 @@ import React from 'react';
 
 const Address = ({ data }) => {
 	return (
-		<h2>
+		<h4>
 			{ data }
-		</h2>
+		</h4>
 	)
 };
 

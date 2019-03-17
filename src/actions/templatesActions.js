@@ -5,7 +5,7 @@ import {
 	FETCH_TEMPLATES_ERROR,
 	CHANGE_TEMPLATE
 } from '../constants/actionTypes';
-import store from '../store'
+import store from '../store';
 
 export const fetchTemplates = () => dispatch => {
 	dispatch({type: FETCH_TEMPLATES_REQUEST});
@@ -20,5 +20,5 @@ export const fetchTemplates = () => dispatch => {
 
 export const changeTemplate = id => dispatch => {
 	const payload = store.getState().templates.templatesList.find(temp=>id===temp.id);
-	dispatch({type: CHANGE_TEMPLATE, payload})
+	dispatch({type: CHANGE_TEMPLATE, payload});
 };
