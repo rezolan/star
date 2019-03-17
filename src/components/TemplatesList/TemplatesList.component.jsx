@@ -11,7 +11,7 @@ const TemplatesList = (
 		open,
 		changeTemplate,
 		setOpen,
-		templates: { templatesList },
+		templates: { templatesList, currentTemplate },
 		classes: { item, modalBtn, modal } }) => (
 
 		<div>
@@ -43,6 +43,7 @@ const TemplatesList = (
 							key={temp.id}>
 							<Card
 								data={data}
+								isActive={temp.id === currentTemplate.id}
 								currentTemplate={temp}/>
 						</Grid>))}
 					<Grid

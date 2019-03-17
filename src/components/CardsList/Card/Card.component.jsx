@@ -5,8 +5,10 @@ import { Paper, Grid } from '@material-ui/core';
 import { componentsConverter } from '../../../constants/componentsConverner';
 import { styles } from './Card.styles';
 
-const Card = ({ data, currentTemplate: { template }, classes: { card, container } }) => (
-	<Paper className={card}>
+const Card = ({ data, isActive, currentTemplate: { template }, classes: { card, container, acive } }) => (
+	<Paper
+		className={card}
+		style={isActive ? {backgroundColor: '#bfbfbf'}: null}>
 		<Grid
 			className={container}
 			container
@@ -42,6 +44,7 @@ const Card = ({ data, currentTemplate: { template }, classes: { card, container 
 
 Card.propTypes = {
 	data: PropTypes.object.isRequired,
+	isActive: PropTypes.bool,
 	currentTemplate: PropTypes.object.isRequired,
 	classes: PropTypes.object
 
