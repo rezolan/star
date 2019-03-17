@@ -11,7 +11,7 @@ export const templatesState = {
 	currentTemplate: null
 };
 
-const templates = (state = templatesState, action) => {
+export const templates = (state = templatesState, action) => {
 	const { type, payload } = action;
 
 	switch(type) {
@@ -31,4 +31,3 @@ const templates = (state = templatesState, action) => {
 			return {...state};
 	}
 };
-export default templates;

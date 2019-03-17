@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { root } from '../constants/axiosConfig';
 import {
 	FETCH_TEMPLATES_REQUEST,
 	FETCH_TEMPLATES_SUCCESS,
@@ -9,7 +9,7 @@ import store from '../store';
 
 export const fetchTemplates = () => dispatch => {
 	dispatch({type: FETCH_TEMPLATES_REQUEST});
-	axios.get('http://demo4452328.mockable.io/templates')
+	root.get('/templates')
 		.then(({ data }) => {
 			dispatch({type: FETCH_TEMPLATES_SUCCESS, payload: data});
 		})

@@ -1,38 +1,36 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CardsList from '../components/CardsList';
+import { CardsList } from '../components/CardsList';
+import { TemplatesList } from '../components/TemplatesList';
 import { fetchCards, fetchTemplates, changeTemplate } from '../actions';
-import TemplatesList from '../components/TemplatesList';
+
 
 class App extends PureComponent {
-	getCurrentTemplate() {
-		const { templates } = this.props;
-		return templates.templatesList.find(({ id }) => id === templates.currentTemplate);
-	}
-  componentDidMount() {
+	componentDidMount() {
 		this.props.fetchCards();
 		this.props.fetchTemplates();
 	}
 	render() {
-  	const { cards, templates, changeTemplate } = this.props;
+		const { cards, templates, changeTemplate } = this.props;
 		return (
-      <div className="App">
+			<div className="App">
 				{!cards.isLoading && !templates.isLoading ?
-					cards.error || templates.error ? <h1>Something went wrong</h1> :
-					<>
-						<TemplatesList
-							templates={templates}
-							data={cards.cardsList[0]}
-							changeTemplate={changeTemplate}/>
-						<CardsList
-							cards={cards}
-							currentTemplate={templates.currentTemplate}/>
-					</>
-					 : null}
-      </div>
-    );
-  }
+					cards.error || templates.error ?
+						<h1>Something went wrong</h1> :
+						<>
+							<TemplatesList
+								templates={templates}
+								data={cards.cardsList[0]}
+								changeTemplate={changeTemplate}/>
+							<CardsList
+								cards={cards}
+								currentTemplate={templates.currentTemplate}/>
+						</>
+					: null}
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = ({ cards, templates }) => ({ cards, templates });

@@ -6,7 +6,7 @@ export const cardsState = {
 	error: null
 };
 
-const cards = (state = cardsState, action) => {
+export const cards = (state = cardsState, action) => {
 	const { type, payload } = action;
 
 	switch(type) {
@@ -20,4 +20,3 @@ const cards = (state = cardsState, action) => {
 			return {...state};
 	}
 };
-export default cards;
